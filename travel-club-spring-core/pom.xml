@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>travelclub.spring</groupId>
+    <artifactId>travelclub</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <!--우측 Maven도구를 클릭하면 다운받아져있는 dependencies를 볼수가 있다.-->
+        <!--이때 dependencies 안에 spring-context, lombok이 다운받아져 있지 않다면 reload를 통해 다운받아야한다.-->
+
+        <!--ioc를 사용하기 위한 스프링 코어 라이브러리-->
+        <!-- spring -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <!--spring-context 라이브러리-->
+            <!--안에는 spring AOP,BEANS,CORE,EXPRESSIONS 4개의 라이브러리가 포함되어있다.-->
+            <!--즉 CORE, BEANS 라이브러리등을 사용하기 위해서 spring-context를 다운받아야한다.-->
+            <version>5.3.0</version>
+        </dependency>
+
+        <!--생산성을 위해서 사용하는 도구-->
+        <!--setter,getter,생성자 등등 클래스를 만들때 자주 사용되는 코드들을 어노테이션
+        형태로 간단하게 정의하면 롬복이라는 도구가 알아서 그 코드를 생성해준다.-->
+        <!-- lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.16</version>
+            <scope>provided</scope>
+        </dependency>
+
+    </dependencies>
+
+</project>

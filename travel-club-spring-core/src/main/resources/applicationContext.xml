@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--XML 에서는 의존관계를 설정해주는 곳!-->
+<!--기본적으로 의존관계를 설정하는 방법으로는 XML, 어노테이션, 자바소스를 이용해서 설정 할 수있다.-->
+<!--Spring은 setter injection, contructor injection, method injection등 세가지 DI 패턴을 지원한다.-->
+<!--보통은 생성자 DI를 많이 사용하고 우리도 지금 생성자로 하여금 의존관계를 설정하고 Bean에게 등록하여 사용했다.-->
+<!--여기서 하단계 발전해 context : component-scan 경로를 설정하고 어노테이션으로 의존관계를 주입해 더 편리하게 사용한것이다.-->
+
+<!--applicationContext.xml => Bean을 등록하는곳이라고 생각하면 된다. 하지만 옜날 방식!! 그래도 어떻게 진행되는지는 알아야한다.-->
+
+<!--클래스를 SpringBean이 알겠금 등록을 시켜서 IOC컨테이너에서 클래스를 관리하게한다.-->
+<!--이게 결국 제어의 역전 => 내가 객체를 생성해서 하는게 아니라 BEAN이 알아서 해준다.-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--==============================================================================================================-->
+
+    <!--      &lt;!&ndash;이렇게 root경로부터 해당 클래스 경로까지 입력한뒤 bean으로 등록시켜준다.&ndash;&gt;
+          <bean id ="clubStore" class ="travelclub.spring.store.mapstore.ClubMapStore"></bean>
+
+          &lt;!&ndash;clubService가 사용되는 시점에 생성자에서 reference하고있는 clubStore의 아이디를 갖고있는
+          "travelclub.spring.store.mapstore.ClubMapStore"이 클래스를 주입해준다.&ndash;&gt;
+          <bean id ="clubService" class ="travelclub.spring.service.logic.ClubServiceLogic">
+              &lt;!&ndash;생성자의 파라미터로 clubStore아이디를 갖는 빈을 주입해준다.&ndash;&gt;
+              <constructor-arg ref ="clubStore"></constructor-arg>
+          </bean>    -->
+
+    <!--==============================================================================================================-->
+
+    <!--위에는 각각의 클래스를 Bean에다 등록시켜주는 방법(옜날 방법) , 현재는 어노테이션으로 Bean 등록하는 방법(요즘 방법)-->
+    <!--"travelclub.spring"경로를 기준으로 하위 경로안에 클래스에 어노테이션으로 Bean에 등록하였다면 스프링이 알아서 스캔해서 등록해준다.-->
+    <context:component-scan base-package="travelclub.spring"></context:component-scan>
+
+    <!--==============================================================================================================-->
+
+</beans>
+
+
+
+
+
