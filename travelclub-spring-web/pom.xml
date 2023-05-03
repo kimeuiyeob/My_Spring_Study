@@ -4,33 +4,41 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <!--Maven 프로젝트는 서로 상속이 가능하다. 즉 => pom.xml간의 상속이 된다.-->
+    <!--스피링부트 프로젝트를 만들때에는 기본적으로 spring-boot-starter-parent상속받는 구조로 Maven프로젝트 설정을 해야한다.-->
     <parent>
         <groupId>org.springframework.boot</groupId>
+        <!-- lookup parent from repository -->
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.5.8</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
 
     <properties>
         <java.version>11</java.version>
     </properties>
 
-    <groupId>io.namoosori</groupId>
+    <groupId>travelclub.spring.web</groupId>
     <artifactId>travelclub-spring-web</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <!--스프링 기반의 웹 프로젝트를 만들때 기본적으로 필요한 라이브러리들-->
     <dependencies>
+
+        <!--================================================================================-->
         <!-- Spring Web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
         <!-- Spring test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
         <!-- lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -45,6 +53,25 @@
             <artifactId>gson</artifactId>
             <version>2.8.9</version>
         </dependency>
+
+        <!--================================================================================-->
+        <!--스프링 데이터 JPA를 상요하기 위해서는 https://start.spring.io/ 스프링 이니셜라이즈에서
+        spring data jpa와 DB로 사용할 H2를 다운받아 사용한다.-->
+
+        <!--Spring data jpa-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <!--H2 Database-->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!--================================================================================-->
 
     </dependencies>
 

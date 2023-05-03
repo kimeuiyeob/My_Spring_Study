@@ -3,6 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <!--Maven 관리 도구 => dependency management-->
+    <!--Pom.xml => 라이브러리를 다운받는곳-->
+
+    <!--Central Repository라는 모든 jar파일이 존재하는 Repository에서 인터넷을 통하여 다운받아오는 형식이다.-->
+    <!--이때 다운 받아오면 중간 Remote Repository에 저장되 관리되어 => Local(개인) Repository로 사용되는 형식이다.-->
+
+    <!--***이때 라이브러리를 다운받아오는 과정에 인터넷상문제라든지 다른 문제로 다운이 제대로 받아지지 않아 에러가 발생될수있다.-->
+    <!--이때 => user_home/.m2/repository위치에서 다운받아지는데 이게 제대로 다운이 안받아진거라서 비우고 재다운을 받아 사용하면된다.-->
 
     <groupId>travelclub.spring</groupId>
     <artifactId>travelclub</artifactId>
@@ -13,12 +21,14 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
+    <!--라이브러리를 더 다운받고 싶으면  <dependencies>태그안에 <dependency>로 다운받는형식-->
+    <!--현재는 -->
     <dependencies>
         <!--우측 Maven도구를 클릭하면 다운받아져있는 dependencies를 볼수가 있다.-->
         <!--이때 dependencies 안에 spring-context, lombok이 다운받아져 있지 않다면 reload를 통해 다운받아야한다.-->
 
         <!--ioc를 사용하기 위한 스프링 코어 라이브러리-->
-        <!-- spring -->
+        <!-- spring-context코어 라이브러리랑 lombok라이브러리를 다운받았다. -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
