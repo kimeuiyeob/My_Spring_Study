@@ -9,17 +9,17 @@ MVC(Model-View-Controller)패턴을 웹에 도입한 형태
 
 
 Spring MVC pattern 처리 과정
-client url 요청
--> DispatcherServlet이 받음(web.xml에서 설정)
--> DispatcherServlet이 HandlerMapping으로 전달(servlet-context.xml에서 @controller을 스캔)
--> Controller에서 URL에 해당하는 @ReuqestMapping 찾아감
--> Controller은 해당 메소드에서 처리 하는 과정에서 Service를 호출(@Inject XXService)
-->Service는 @Inject(DI)로 주입 받고 구현 된 필요 로직을 처리하고 DAO를 주입 받아 데이터 베이스 처리를 위임(@Inject XXDAO)
--> DAo가 database에 쿼리 전달해서 CRUD 함
-->database에서부터 return으로 DAO >> Service >> Controller
--> Model객체에 담아 전달 할 페이지(JSP)로 데이터를 전달
--> DispatcherServlet이 ViewResoler에게 페이지 정보를 찾으라고 하고 JSP를 찾아 DispatcherServlet에게 알려줌(servlet-context.xml에서 suffix, prefix하여 /WEB-INF/views/*.jsp 처리 설정을 ViewResolver가 함)
--> Dispatcher가 view에게 전달하여 페이지를 랜딩하고 데이터를 표출(el 언어 사용)
+  client url 요청
+  -> DispatcherServlet이 받음(web.xml에서 설정)
+  -> DispatcherServlet이 HandlerMapping으로 전달(servlet-context.xml에서 @controller을 스캔)
+  -> Controller에서 URL에 해당하는 @ReuqestMapping 찾아감
+  -> Controller은 해당 메소드에서 처리 하는 과정에서 Service를 호출(@Inject XXService)
+  ->Service는 @Inject(DI)로 주입 받고 구현 된 필요 로직을 처리하고 DAO를 주입 받아 데이터 베이스 처리를 위임(@Inject XXDAO)
+  -> DAo가 database에 쿼리 전달해서 CRUD 함
+  ->database에서부터 return으로 DAO >> Service >> Controller
+  -> Model객체에 담아 전달 할 페이지(JSP)로 데이터를 전달
+  -> DispatcherServlet이 ViewResoler에게 페이지 정보를 찾으라고 하고 JSP를 찾아 DispatcherServlet에게 알려줌(servlet-context.xml에서 suffix, prefix하여 /WEB-INF/views/*.jsp 처리 설정을 ViewResolver가 함)
+  -> Dispatcher가 view에게 전달하여 페이지를 랜딩하고 데이터를 표출(el 언어 사용)
 
 
 Spring boot
